@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvGenre"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/product_sans_regular"
+    android:textSize="@dimen/font_size_small"
+    android:background="@drawable/capsule_background"
+    android:text="@string/app_name"
+    android:textColor="@color/colorTextSecondary"
+    android:paddingVertical="@dimen/space_4x"
+    android:paddingHorizontal="@dimen/space_8x"/>

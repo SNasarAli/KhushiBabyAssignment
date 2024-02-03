@@ -60,7 +60,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/product_sans_bold"
                     android:singleLine="true"
-                    app:text="100%"
+                    android:text="100%"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/font_size_small" />
@@ -76,7 +76,7 @@
                 android:fontFamily="@font/product_sans_bold"
                 android:padding="2dp"
                 android:singleLine="true"
-                app:text="@string/up_vote"
+                android:text="@string/up_vote"
                 android:textColor="@color/colorTextSecondary"
                 android:textSize="@dimen/font_size_small"
                 app:drawableLeftCompat="@mipmap/up_vote" />
@@ -97,7 +97,7 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/product_sans_bold"
                 android:singleLine="true"
-                app:text="@string/app_name"
+                android:text="@string/app_name"
                 android:textAlignment="center"
                 android:textColor="@color/colorTextPrimary"
                 android:textSize="@dimen/font_size_x_large" />
@@ -116,7 +116,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/product_sans_regular"
                     android:singleLine="true"
-                    app:text="@string/release_date"
+                    android:text="@string/release_date"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/font_size_normal" />
@@ -134,7 +134,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/product_sans_regular"
                     android:singleLine="true"
-                    app:text="@string/lang"
+                    android:text="@string/lang"
                     android:textAlignment="center"
                     android:textColor="@color/colorTextPrimary"
                     android:textSize="@dimen/font_size_normal" />

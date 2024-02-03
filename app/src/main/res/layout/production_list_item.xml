@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/space_4x">
+
+    <ImageView
+        android:id="@+id/imgProductionLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <TextView
+        android:id="@+id/tvProductionName"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:fontFamily="@font/product_sans_bold"
+        android:padding="2dp"
+        android:singleLine="true"
+        android:text="@string/up_vote"
+        android:textColor="@color/colorTextSecondary"
+        android:textSize="@dimen/font_size_small"/>
+
+</LinearLayout>

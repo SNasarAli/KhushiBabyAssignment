@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <include
         android:id="@+id/toolbarLyt"
@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerNotification"
+                android:id="@+id/recyclerMovieList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
