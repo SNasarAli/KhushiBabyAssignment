@@ -90,7 +90,9 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <include layout="@layout/test_lyt" />
+        <include
+            android:id="@+id/layoutMovieDetail"
+            layout="@layout/test_lyt" />
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -3,6 +3,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
+    android:paddingHorizontal="@dimen/space_12x"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -161,6 +162,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/product_sans_regular"
+        android:text="@string/overview"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="@dimen/font_size_normal"
+        android:layout_marginVertical="@dimen/space_4x"/>
+    <TextView
         android:id="@+id/tvStoryLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -169,7 +180,8 @@
         android:text="@string/content"
         android:textAlignment="viewStart"
         android:textColor="@color/colorTextPrimary"
-        android:textSize="@dimen/font_size_normal" />
+        android:textSize="@dimen/font_size_normal"
+        android:layout_marginVertical="@dimen/space_4x"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerProduction"

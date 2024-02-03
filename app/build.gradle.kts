@@ -17,6 +17,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -49,4 +53,6 @@ dependencies {
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
     //shimmer effect
     implementation ("com.facebook.shimmer:shimmer:0.5.0")
+
+    implementation ("com.google.android.flexbox:flexbox:3.0.0")
 }
