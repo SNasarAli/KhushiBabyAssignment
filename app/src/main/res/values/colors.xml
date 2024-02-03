@@ -5,4 +5,8 @@
     <color name="colorPrimary">#073077</color>
     <color name="colorTextPrimary">#F7F7F7</color>
     <color name="colorTextSecondary">#FFFFFF</color>
+    <color name="colorPrimary75">#BF022259</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorShimmerLight">#EAEDEA</color>
+    <color name="colorShimmerDark">#D0D3D0</color>
 </resources>

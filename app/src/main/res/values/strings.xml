@@ -2,4 +2,7 @@
     <string name="app_name">KhushiBaby Assignment</string>
     <string name="movies">Movies</string>
     <string name="movies_detail">Movies Detail</string>
+    <string name="up_vote">Vote:</string>
+    <string name="lang">Language:</string>
+    <string name="release_date">Release Date:</string>
 </resources>

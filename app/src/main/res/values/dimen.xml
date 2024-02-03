@@ -11,5 +11,10 @@
     <dimen name="space_22x">22dp</dimen>
     <dimen name="space_24x">24dp</dimen>
 
+    <dimen name="icon_size">40dp</dimen>
+    <dimen name="list_item_size">200dp</dimen>
+
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_normal">14sp</dimen>
     <dimen name="font_size_x_large">18sp</dimen>
 </resources>
