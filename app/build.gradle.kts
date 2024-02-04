@@ -53,6 +53,13 @@ dependencies {
     implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
     //shimmer effect
     implementation ("com.facebook.shimmer:shimmer:0.5.0")
-
+    // flexbox for chip effect in recyclerview
     implementation ("com.google.android.flexbox:flexbox:3.0.0")
+    // glide dependency
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    // retro fit for api
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.2")
+    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2")
 }
