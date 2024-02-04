@@ -16,7 +16,6 @@
         android:textAlignment="center"
         android:fontFamily="@font/product_sans_bold"
         android:padding="2dp"
-        android:singleLine="true"
         android:text="@string/up_vote"
         android:textColor="@color/colorTextSecondary"
         android:textSize="@dimen/font_size_small"/>

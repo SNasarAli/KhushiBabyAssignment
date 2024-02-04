@@ -8,14 +8,14 @@ class MovieSpokenLanguage {
 
     @SerializedName("english_name")
     @Expose
-    private var englishName: String? = null
+     var englishName: String? = null
 
     @SerializedName("iso_639_1")
     @Expose
-    private var iso6391: String? = null
+     var iso6391: String? = null
 
     @SerializedName("name")
     @Expose
-    private var name: String? = null
+     var name: String? = null
 
 }

@@ -39,7 +39,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/img_product"
+                            android:id="@+id/imgBanner"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/list_item_size"
                             android:scaleType="centerCrop"
@@ -75,7 +75,7 @@
 
             <include
                 android:id="@+id/layoutMovieDetail"
-                layout="@layout/test_lyt" />
+                layout="@layout/movie_detail_layout" />
         </androidx.core.widget.NestedScrollView>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

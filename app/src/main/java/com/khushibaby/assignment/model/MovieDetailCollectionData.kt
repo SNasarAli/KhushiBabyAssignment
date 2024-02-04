@@ -8,18 +8,18 @@ class MovieDetailCollectionData {
 
     @SerializedName("id")
     @Expose
-    private var id: Int? = null
+     var id: Int? = null
 
     @SerializedName("name")
     @Expose
-    private var name: String? = null
+     var name: String? = null
 
     @SerializedName("poster_path")
     @Expose
-    private var posterPath: String? = null
+     var posterPath: String? = null
 
     @SerializedName("backdrop_path")
     @Expose
-    private var backdropPath: String? = null
+     var backdropPath: String? = null
 
 }

@@ -4,61 +4,76 @@ import com.google.gson.annotations.Expose
 
 import com.google.gson.annotations.SerializedName
 
-class MoviesListDataModel {
+class MoviesListDataModel(
+    adult: Boolean,
+    backdropPath: String,
+    genreIds: List<Int?>?,
+    id: Int,
+    originalLanguage: String,
+    originalTitle: String,
+    overview: String,
+    popularity: Double,
+    posterPath: String,
+    releaseDate: String,
+    title: String,
+    video: Boolean,
+    voteAverage: Double,
+    voteCount: Int
+) {
 
     @SerializedName("adult")
     @Expose
-    private var adult: Boolean? = null
+     var adult: Boolean? = adult
 
     @SerializedName("backdrop_path")
     @Expose
-    private var backdropPath: String? = null
+     var backdropPath: String? = backdropPath
 
     @SerializedName("genre_ids")
     @Expose
-    private var genreIds: List<Int?>? = null
+     var genreIds: List<Int?>? = genreIds
 
     @SerializedName("id")
     @Expose
-    private var id: Int? = null
+     var id: Int? = id
 
     @SerializedName("original_language")
     @Expose
-    private var originalLanguage: String? = null
+     var originalLanguage: String? = originalLanguage
 
     @SerializedName("original_title")
     @Expose
-    private var originalTitle: String? = null
+     var originalTitle: String? = originalTitle
 
     @SerializedName("overview")
     @Expose
-    private var overview: String? = null
+     var overview: String? = overview
 
     @SerializedName("popularity")
     @Expose
-    private var popularity: Double? = null
+     var popularity: Double? = popularity
 
     @SerializedName("poster_path")
     @Expose
-    private var posterPath: String? = null
+     var posterPath: String? = posterPath
 
     @SerializedName("release_date")
     @Expose
-    private var releaseDate: String? = null
+     var releaseDate: String? = releaseDate
 
     @SerializedName("title")
     @Expose
-    private var title: String? = null
+     var title: String? = title
 
     @SerializedName("video")
     @Expose
-    private var video: Boolean? = null
+     var video: Boolean? = video
 
     @SerializedName("vote_average")
     @Expose
-    private var voteAverage: Double? = null
+     var voteAverage: Double? = voteAverage
 
     @SerializedName("vote_count")
     @Expose
-    private var voteCount: Int? = null
+     var voteCount: Int? = voteCount
 }

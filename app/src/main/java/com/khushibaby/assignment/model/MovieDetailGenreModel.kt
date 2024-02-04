@@ -8,10 +8,10 @@ class MovieDetailGenreModel {
 
     @SerializedName("id")
     @Expose
-    private var id: Int? = null
+     var id: Int? = null
 
     @SerializedName("name")
     @Expose
-    private var name: String? = null
+     var name: String? = null
 
 }

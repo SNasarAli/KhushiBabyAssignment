@@ -8,14 +8,14 @@ class MovieProductionCompany {
 
     @SerializedName("id")
     @Expose
-    private var id: Int? = null
+     var id: Int? = null
 
     @SerializedName("logo_path")
     @Expose
-    private var logoPath: Any? = null
+     var logoPath: Any? = null
 
     @SerializedName("name")
     @Expose
-    private var name: String? = null
+     var name: String? = null
 
 }

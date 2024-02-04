@@ -9,4 +9,5 @@
     <color name="colorGreen">#4CAF50</color>
     <color name="colorShimmerLight">#EAEDEA</color>
     <color name="colorShimmerDark">#D0D3D0</color>
+    <color name="darkBg">#6E6E6E</color>
 </resources>
