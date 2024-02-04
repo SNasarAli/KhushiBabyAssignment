@@ -8,7 +8,9 @@
     <ImageView
         android:id="@+id/imgProductionLogo"
         android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:layout_height="100dp"
+        android:padding="@dimen/space_4x"
+        android:background="@color/white"/>
     <TextView
         android:id="@+id/tvProductionName"
         android:layout_width="100dp"

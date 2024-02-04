@@ -106,9 +106,13 @@ object CommonUtils {
         var time = ""
         if (mins != null) {
             if (mins <= 0){
-                time = hrs.toString()+"Hr"+mins.toString()+"Min"
-            }else{
                 time = hrs.toString()+"Hr"
+            }else if (hrs != null) {
+                if (hrs <=0){
+                    time = mins.toString()+"Min"
+                }else{
+                    time = hrs.toString()+"Hr"+mins.toString()+"Min"
+                }
             }
         }
         return time

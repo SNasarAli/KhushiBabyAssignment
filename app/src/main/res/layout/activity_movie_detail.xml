@@ -42,8 +42,7 @@
                             android:id="@+id/imgBanner"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/list_item_size"
-                            android:scaleType="centerCrop"
-                            android:src="@mipmap/test_img" />
+                            android:scaleType="centerCrop"/>
 
                         <ImageView
                             android:id="@+id/imgBack"
