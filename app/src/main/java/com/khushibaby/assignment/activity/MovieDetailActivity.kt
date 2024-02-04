@@ -3,6 +3,7 @@ package com.khushibaby.assignment.activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.flexbox.FlexDirection
@@ -38,13 +39,16 @@ class MovieDetailActivity : AppCompatActivity() {
         val flexboxLayoutManager = FlexboxLayoutManager(mContext)
         // Set flex direction.
         // Set flex direction.
-        flexboxLayoutManager.setFlexDirection(FlexDirection.ROW)
+        flexboxLayoutManager.flexDirection = FlexDirection.ROW
         // Set JustifyContent.
         // Set JustifyContent.
-        flexboxLayoutManager.setJustifyContent(JustifyContent.FLEX_START)
+        flexboxLayoutManager.justifyContent = JustifyContent.FLEX_START
 
         genreListAdapter = GenreListAdapter(mContext)
         binding.layoutMovieDetail.recyclerGenre.layoutManager = flexboxLayoutManager
         binding.layoutMovieDetail.recyclerGenre.adapter = genreListAdapter
+
+
+        binding.shimmerEffectDetail.shimmerDetailLayout.visibility = View.GONE
     }
 }
