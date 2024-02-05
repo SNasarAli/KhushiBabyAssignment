@@ -18,14 +18,13 @@ import com.khushibaby.assignment.api.ApiClient
 import com.khushibaby.assignment.databinding.ActivityMovieDetailBinding
 import com.khushibaby.assignment.helper.CommonUtils
 import com.khushibaby.assignment.helper.Constant
+import com.khushibaby.assignment.model.MovieDataClass
 import com.khushibaby.assignment.model.MovieDetailGenreModel
 import com.khushibaby.assignment.model.MovieDetailModel
 import com.khushibaby.assignment.model.MovieProductionCompany
-import com.khushibaby.assignment.model.MoviesListDataModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
 
 class MovieDetailActivity : AppCompatActivity() {
 
@@ -38,7 +37,7 @@ class MovieDetailActivity : AppCompatActivity() {
     private var movieId = 0
     private val genreList = ArrayList<MovieDetailGenreModel?>()
     private val producersList = ArrayList<MovieProductionCompany?>()
-
+    private var movieDataClass: MovieDataClass? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = this
@@ -86,12 +85,35 @@ class MovieDetailActivity : AppCompatActivity() {
                 }
             })
         } else {
+            binding.shimmerEffectDetail.shimmerDetailLayout.visibility = View.GONE
+            updateLocalData()
             CommonUtils.showSnackbarWithoutView(
                 resources.getString(R.string.no_network_error),
                 mContext,
                 0
             )
         }
+    }
+
+    private fun updateLocalData() {
+        Log.e("movieDataClass","----------------->>"+ (movieDataClass?.originalTitle ?: ""))
+        CommonUtils.loadImageWithGlide(binding.imgBanner,Constant.IMAGE_URL+movieDataClass?.backdropPath,mContext)
+        binding.layoutMovieDetail.tvTitle.text  = movieDataClass?.originalTitle
+        binding.layoutMovieDetail.tvTagline.text = ""
+        CommonUtils.loadImageWithGlide(binding.layoutMovieDetail.imgPoster,Constant.IMAGE_URL+movieDataClass?.posterPath,mContext)
+        if (movieDataClass?.adult == true){
+            binding.layoutMovieDetail.imgForViewers.setImageDrawable(ContextCompat.getDrawable(mContext, R.mipmap.adult_logo))
+        }else{
+            binding.layoutMovieDetail.imgForViewers.setImageDrawable(ContextCompat.getDrawable(mContext, R.mipmap.ua_logo))
+        }
+        binding.layoutMovieDetail.tvLang.text = movieDataClass?.originalLanguage
+        binding.layoutMovieDetail.tvMovieLength.text = ""
+        binding.layoutMovieDetail.tvReleaseDate.text = movieDataClass?.releaseDate
+        binding.layoutMovieDetail.tvBudget.text = mContext.resources.getString(R.string.budget)
+        binding.layoutMovieDetail.tvEarnings.text = mContext.resources.getString(R.string.earn)
+        binding.layoutMovieDetail.tvVotes.text = "${mContext.resources.getString(R.string.up_vote)}${movieDataClass?.voteCount.toString()}"
+        binding.layoutMovieDetail.tvStoryLine.text = movieDataClass?.overview
+
     }
 
     private fun updateData(body: MovieDetailModel?) {
@@ -123,8 +145,10 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
     private fun getDataFromBundle() {
-        val bundle = intent.extras
-        movieId = bundle!!.getInt("movieId",0)
+//        val bundle = intent.extras
+//        movieId = bundle!!.getInt("movieId",0)
+//        movieDataClass = intent?.extras?.get("EXTRA_PEOPLE") as? MovieDataClass
+        movieDataClass = intent.getSerializableExtra("EXTRA_PEOPLE") as? MovieDataClass
     }
 
     private fun setup() {

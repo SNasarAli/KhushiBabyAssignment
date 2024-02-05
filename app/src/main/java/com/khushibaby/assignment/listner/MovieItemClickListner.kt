@@ -1,5 +1,7 @@
 package com.khushibaby.assignment.listner
 
+import com.khushibaby.assignment.model.MovieDataClass
+
 interface MovieItemClickListner {
-    fun onItemClick(a: Int)
+    fun onItemClick(dataObject: MovieDataClass)
 }

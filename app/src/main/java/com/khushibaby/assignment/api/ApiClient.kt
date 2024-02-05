@@ -1,6 +1,5 @@
 package com.khushibaby.assignment.api
 
-import android.util.Log
 import java.security.SecureRandom
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLContext

@@ -2,12 +2,13 @@ package com.khushibaby.assignment.activity
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -18,12 +19,15 @@ import com.khushibaby.assignment.databinding.ActivityMainBinding
 import com.khushibaby.assignment.helper.CommonUtils
 import com.khushibaby.assignment.helper.Constant
 import com.khushibaby.assignment.listner.MovieItemClickListner
-import com.khushibaby.assignment.model.MoviesListDataModel
+import com.khushibaby.assignment.localdb.MyAppDataBase
+import com.khushibaby.assignment.model.MovieDataClass
 import com.khushibaby.assignment.model.MoviesListModel
+import com.khushibaby.assignment.repository.MyRepository
+import com.khushibaby.assignment.viewmodel.MyViewModel
+import com.khushibaby.assignment.viewmodel.MyViewModelFactory
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,9 +35,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mContext: Context
     private lateinit var layoutManager: LinearLayoutManager
     private var movieListAdapter: MovieListAdapter? = null
-    private val movieList = ArrayList<MoviesListDataModel>()
-    private var page = 1
+    private val movieList = ArrayList<MovieDataClass>()
+    private var page = 0
     private var loadMore = false
+//    private val movieDataClass = ArrayList<MovieDataClass>()
+    private lateinit var viewModel: MyViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = this
@@ -86,10 +93,16 @@ class MainActivity : AppCompatActivity() {
                 mContext,
                 0
             )
+            getLocalData()
         }
     }
 
-    private fun updateData(results: List<MoviesListDataModel>) {
+    private fun getLocalData() {
+            movieList.addAll(viewModel.getItems())
+            movieListAdapter?.notifyDataSetChanged()
+    }
+
+    private fun updateData(results: List<MovieDataClass>) {
         if (movieList.size > 0 && movieList.last().id == -1){
             loadMore = false
             movieList.removeAt(movieList.size - 1)
@@ -97,9 +110,18 @@ class MainActivity : AppCompatActivity() {
         }
         movieList.addAll(results)
         movieListAdapter?.notifyItemRangeInserted(movieList.size - results.size, results.size)
+        saveListItemToDB()
+    }
+
+    private fun saveListItemToDB() {
+        viewModel.insertItems(movieList)
     }
 
     private fun setup() {
+        val repository = MyRepository(MyAppDataBase.getDatabase(applicationContext).myDao())
+        val viewModelFactory = MyViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory)[MyViewModel::class.java]
+
         layoutManager = LinearLayoutManager(mContext)
         movieListAdapter = MovieListAdapter(mContext,movieList,movieItemClickListner)
         binding.recyclerMovieList.layoutManager = layoutManager
@@ -122,10 +144,12 @@ class MainActivity : AppCompatActivity() {
                 val totalItemCount: Int = layoutManager.itemCount
                 if (firstVisibleItem + visibleItemCount == totalItemCount && totalItemCount != 0) {
                     if (!loadMore) {
-                        loadMore = true
-                        movieList.add(MoviesListDataModel(false, "",null, -1, "", "", "",0.0,"","","", false, 0.0, -1))
-                        recyclerView.post { movieListAdapter!!.notifyItemInserted(movieList.size - 1) }
-                        callMovieListApi(false)
+                        if (CommonUtils.isConnectingToInternet(mContext)){
+                            loadMore = true
+                            movieList.add(MovieDataClass(false, "",null, "", "", "", 0.0,"","","",false, 0.0, 0))
+                            recyclerView.post { movieListAdapter!!.notifyItemInserted(movieList.size - 1) }
+                            callMovieListApi(false)
+                        }
                     }
                 }
             }
@@ -142,11 +166,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val movieItemClickListner = object : MovieItemClickListner{
-        override fun onItemClick(id: Int) {
-            val bundle = Bundle()
-            bundle.putInt("movieId", id)
-            intent = Intent(this@MainActivity, MovieDetailActivity::class.java)
-            intent.putExtras(bundle)
+        override fun onItemClick(dataObject: MovieDataClass) {
+//            val bundle = Bundle()
+//            bundle.putInt("movieId", id)
+//            bundle.putInt("movieId", id)
+//            intent = Intent(this@MainActivity, MovieDetailActivity::class.java)
+//            intent.putExtras(bundle)
+//            startActivity(intent)
+            val intent = Intent(this@MainActivity, MovieDetailActivity::class.java)
+            intent.putExtra("EXTRA_PEOPLE", dataObject)
             startActivity(intent)
         }
 

@@ -11,7 +11,7 @@ class MoviesListModel {
 
     @SerializedName("results")
     @Expose
-     var results: List<MoviesListDataModel>? = null
+     var results: List<MovieDataClass>? = null
 
     @SerializedName("total_pages")
     @Expose

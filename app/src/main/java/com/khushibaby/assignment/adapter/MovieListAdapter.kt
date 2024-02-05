@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.khushibaby.assignment.R
-import com.khushibaby.assignment.listner.MovieItemClickListner
 import com.khushibaby.assignment.databinding.ItemMovieListBinding
 import com.khushibaby.assignment.helper.CommonUtils
 import com.khushibaby.assignment.helper.Constant
-import com.khushibaby.assignment.model.MoviesListDataModel
+import com.khushibaby.assignment.listner.MovieItemClickListner
+import com.khushibaby.assignment.model.MovieDataClass
 
 class MovieListAdapter(private val ctx: Context,
-                       private var data: MutableList<MoviesListDataModel>,
+                       private var data: MutableList<MovieDataClass>,
                        private val listener: MovieItemClickListner
 ) : RecyclerView.Adapter<MovieListAdapter.MyViewHolder>() {
 
@@ -40,7 +40,7 @@ class MovieListAdapter(private val ctx: Context,
         }
         CommonUtils.loadImageWithGlide(holder.binding.imgBackground,Constant.IMAGE_URL+movieInfoData.backdropPath,ctx)
         holder.binding.itemView.setOnClickListener{
-            listener.onItemClick(movieInfoData.id!!)
+            listener.onItemClick(movieInfoData)
         }
     }
 
